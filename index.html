@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRAVITY HANDS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+        {
+          "imports": {
+            "matter-js": "https://esm.sh/matter-js@0.19.0",
+            "@mediapipe/tasks-vision": "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.8/+esm"
+          }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Background -->
+        <div class="background-grid"></div>
+        <div class="nebula"></div>
+
+        <!-- Game Container -->
+        <div class="game-frame">
+            <div class="screen-header">
+                <span class="status-dot"></span>
+                <span class="status-text">SYSTEM: ONLINE</span>
+            </div>
+
+            <div class="canvas-wrapper">
+                <video id="webcam" autoplay playsinline muted></video>
+                <canvas id="game-canvas"></canvas>
+                <div class="scanlines"></div>
+
+                <!-- HUD Overlay -->
+                <div class="hud-overlay">
+                    <div class="hud-top">
+                        <h1 class="title">GRAVITY HANDS</h1>
+                        <div class="score-panel">
+                            <span class="label">OBJECTS</span>
+                            <span class="value" id="object-count">0</span>
+                        </div>
+                    </div>
+
+                    <div class="hud-bottom">
+                        <div class="controls">
+                            <button id="reset-btn" class="hud-btn">RESET PHYSICS</button>
+                            <button id="debug-btn" class="hud-btn">TOGGLE DEBUG</button>
+                        </div>
+                        <div class="instruction">
+                            pinch to grab // release to drop
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loading Overlay -->
+                <div id="loading" class="loading-overlay">
+                    <div class="loader"></div>
+                    <div class="loading-text">INITIALIZING NEURAL LINK...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>
